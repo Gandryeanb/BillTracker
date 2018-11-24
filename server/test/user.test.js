@@ -6,6 +6,12 @@ const expect = require('chai').expect
 const app = require('../app')
 const User = require('../models').User
 
+const API = require('../API')
+const {
+  register,
+  login
+} = API
+
 let userDummy1 = {
   fname: 'andri',
   lname: 'doe',
@@ -54,7 +60,7 @@ describe('create a new account', () => {
   it('should give response message "creating a new account success"', done => {
     chai
       .request(app)
-      .post('/users')
+      .post(register)
       .send(userDummy1)
       .end((err, res) => {
         expect(res).to.have.status(201)
@@ -81,7 +87,7 @@ describe('create a new account', () => {
 
     chai
       .request(app)
-      .post('/users')
+      .post(register)
       .send(userDummy1)
       .end((err, res) => {
         expect(res).to.have.status(500)
@@ -97,7 +103,7 @@ describe('create a new account', () => {
 
     chai
       .request(app)
-      .post('/users')
+      .post(register)
       .send(userDummy1)
       .end((err, res) => {
         expect(res).to.have.status(500)
@@ -113,7 +119,7 @@ describe('create a new account', () => {
 
     chai
       .request(app)
-      .post('/users')
+      .post(register)
       .send(userDummy1)
       .end((err, res) => {
         expect(res).to.have.status(500)
@@ -129,7 +135,7 @@ describe('create a new account', () => {
 
     chai
       .request(app)
-      .post('/users')
+      .post(register)
       .send(userDummy1)
       .end((err, res) => {
         expect(res).to.have.status(500)
@@ -145,7 +151,7 @@ describe('create a new account', () => {
 
     chai
       .request(app)
-      .post('/users')
+      .post(register)
       .send(userDummy1)
       .end((err, res) => {
         expect(res).to.have.status(500)
@@ -172,7 +178,7 @@ describe('creating account with duplicate email', () => {
 
   chai
     .request(app)
-    .post('/users')
+    .post(register)
     .send(userDummy1)
     .end((err, res) => {
 
@@ -180,7 +186,7 @@ describe('creating account with duplicate email', () => {
 
     chai
       .request(app)
-      .post('/users')
+      .post(register)
       .send(userDummy1)
       .end((err, res) => {
         expect(res).to.have.status(500)
@@ -188,5 +194,82 @@ describe('creating account with duplicate email', () => {
         expect(res.body.message).to.equal('Validation error')
         done()
       })
+  })
+})
+
+describe('user login', () => {
+
+  afterEach(done => {
+    userDummy1 = {
+    fname: 'andri',
+    lname: 'doe',
+    email: 'johndoe@gmail.com',
+    uid: 'johndoexyyy1sakk2'
+  }
+    done()
+  })
+
+  afterEach(done => {
+    User.destroy({
+      where: {},
+      truncate: true
+    })
+      .then(() => {
+        done()
+      })
+  })
+
+  beforeEach(done => {
+    User.create(userDummy1)
+      .then(() => {
+        done()
+      })
+  })
+
+  it('should give response with a token if user input is valid', done => {
+    chai
+    .request(app)
+    .post(login)
+    .send({
+      email: userDummy1.email,
+      uid: userDummy1.uid
+    })
+    .end((err, res) => {
+      expect(res).to.have.status(200)
+      expect(res.body).to.have.property('token')
+      done()
+    })
+  })
+
+  it('should give response with a message "validate error: wrong uid user" if user input uid is invalid', done => {
+    chai
+    .request(app)
+    .post(login)
+    .send({
+      email: userDummy1.email,
+      uid: userDummy1.uid+1
+    })
+    .end((err, res) => {
+      expect(res).to.have.status(500)
+      expect(res.body).to.have.property('message')
+      expect(res.body.message).to.equal('validate error: wrong uid user')
+      done()
+    })
+  })
+
+  it('should give response with a message "validate error: user not found" if user input email is invalid', done => {
+    chai
+    .request(app)
+    .post(login)
+    .send({
+      email: userDummy1.email + 'asd',
+      uid: userDummy1.uid
+    })
+    .end((err, res) => {
+      expect(res).to.have.status(500)
+      expect(res.body).to.have.property('message')
+      expect(res.body.message).to.equal('validate error: user not found')
+      done()
+    })
   })
 })
