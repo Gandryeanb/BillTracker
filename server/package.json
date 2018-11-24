@@ -1,0 +1,40 @@
+{
+  "name": "bill-tracker-server",
+  "version": "1.0.0",
+  "description": "back-end-server",
+  "main": "app.js",
+  "scripts": {
+    "test": "STAGE=test nyc mocha --exit",
+    "dev": "STAGE=development nodemon app.js",
+    "prod": "STAGE=production nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gandryeanb/BillTracker.git"
+  },
+  "keywords": [
+    "server"
+  ],
+  "author": "gusti andryean budiman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gandryeanb/BillTracker/issues"
+  },
+  "homepage": "https://github.com/Gandryeanb/BillTracker#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "morgan": "^1.9.1",
+    "pg": "^7.6.1",
+    "sequelize": "^4.41.2",
+    "sequelize-cli": "^5.3.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
+}
