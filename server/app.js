@@ -7,7 +7,7 @@ const logger = require('morgan');
 const app = express();
 const port = process.env.PORT || 3000;
 const stage = process.env.STAGE
-const userRoute = require('./routes/userRoute')
+const routes = require('./routes')
 let sequelize;
 
 /* istanbul ignore next */
@@ -24,7 +24,7 @@ app.use(logger('tiny'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/users', userRoute)
+app.use('/', routes)
 app.get('/', (req, res) => {
   return res.status(200).json({
     message: `Server running on port ${port}`
