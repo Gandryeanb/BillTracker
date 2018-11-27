@@ -9,13 +9,16 @@ const {
   textStyle
 } = style
 
-export default ({ text, fn }) => {
+export default ({ text, backgroundColor, fn }) => {
   return (
     <TouchableOpacity
       style={containerOutter}
       onPress={() => fn()}
     >
-      <View style={container}>
+      <View style={{
+        ...container,
+        backgroundColor
+      }}>
         <Text style={textStyle}>
           { text }
         </Text>

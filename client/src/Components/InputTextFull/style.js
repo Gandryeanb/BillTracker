@@ -3,7 +3,7 @@ export default {
     borderWidth: .2,
     borderRadius: 6,
     marginBottom: 13,
-    height: 45,
+    height: 40,
     justifyContent: 'center',
     alignItems: 'center'
   },

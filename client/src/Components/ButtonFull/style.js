@@ -1,22 +1,20 @@
-import { Dimensions } from 'react-native'
-
 export default {
   containerOutter: {
     padding: 3
   },
   container: {
     elevation: 1,
-    padding: 7,
+    padding: 6,
     borderRadius: 5,
     backgroundColor: '#60B29B',
     alignSelf: 'stretch',
     alignItems: 'center',
-    width: 250
+    width: 240
   },
   textStyle: {
-    fontSize: 15,
+    fontSize: 13,
     color: '#fff',
     fontWeight: '500',
-    letterSpacing: 2
+    letterSpacing: 1.5
   }
 }

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
 
-import CardLogin from './src/components/CardLogin'
+import CardRegister from './src/components/CardRegister'
 
 import style from'./src/style'
 
-class Login extends Component {
+class Register extends Component {
 
   constructor(props) {
     super(props)
@@ -17,18 +17,12 @@ class Login extends Component {
       container
     } = style
 
-    const {
-      navigation
-    } = this.props
-
     return (
       <View style={container}>
-        <CardLogin
-          navigation={navigation}
-        />
+        <CardRegister/>
       </View>
     )  
   }
 }
 
-export default Login
+export default Register

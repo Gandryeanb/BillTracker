@@ -2,6 +2,7 @@ import { createSwitchNavigator, createAppContainer, createStackNavigator } from 
 
 import AuthChecker from './src/Page/AuthChecker'
 import Login from './src/Page/Login'
+import Register from './src/Page/Register'
 import Home from './src/Page/Home'
 
 
@@ -10,8 +11,11 @@ const AppPhase = createStackNavigator({
 })
 
 const AuthPhase = createStackNavigator({
-  Login
-}, {
+  LoginScreen: Login,
+  RegisterScreen: Register
+},
+{
+  initialRouteKey: 'RegisterScreen',
   headerMode: 'Screen'
 })
 

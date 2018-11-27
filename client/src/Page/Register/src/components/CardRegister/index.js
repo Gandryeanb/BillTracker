@@ -14,12 +14,12 @@ const {
   botContent
 } = style
 
-export default ({ navigation }) => {
+export default (props) => {
   return (
     <View style={container}>
       <View style={topContent}>
         <Text style={header}>
-          Login
+          Register
         </Text>
       </View>
       <View style={midContent}>
@@ -41,7 +41,7 @@ export default ({ navigation }) => {
         <Button
           text='Register'
           backgroundColor= '#60B29B'
-          fn={() => {navigation.navigate('RegisterScreen')}}
+          fn={() => {}}
         />
         <View
           style={{
