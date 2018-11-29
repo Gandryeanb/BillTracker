@@ -4,7 +4,7 @@ export default {
     padding: 20,
     elevation: 2,
     borderRadius: 10,
-    height: 440,
+    height: 450,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff'
@@ -18,11 +18,13 @@ export default {
     marginBottom: 30
   },
   midContent: {
-    flex: .4,
+    flex: .8,
     justifyContent: 'center',
     alignItems: 'center'
   },
   botContent: {
-    flex: .4,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: .1,
   }
 }

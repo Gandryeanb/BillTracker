@@ -23,6 +23,8 @@ export default {
     alignItems: 'center'
   },
   botContent: {
+    justifyContent: 'center',
+    alignItems: 'center',
     flex: .4,
   }
 }

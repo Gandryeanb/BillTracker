@@ -43,11 +43,6 @@ export default ({ navigation }) => {
           backgroundColor= '#60B29B'
           fn={() => {navigation.navigate('RegisterScreen')}}
         />
-        <View
-          style={{
-            height: 10
-          }}
-        />
         <Button
           text='Login via Gmail'
           backgroundColor= '#ea4335'
@@ -58,6 +53,14 @@ export default ({ navigation }) => {
           backgroundColor= '#3b5998'
           fn={() => {}}
         />
+        <Text style={{
+          fontSize: 10,
+          marginTop: 5,
+        }}
+        // onPress={() => {navigation.navigate('ForgotPasswordScreen')}}
+        >
+          I forgot my password
+        </Text>
       </View>
     </View>
   )

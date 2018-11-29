@@ -14,7 +14,7 @@ const {
   botContent
 } = style
 
-export default (props) => {
+export default ({ navigation }) => {
   return (
     <View style={container}>
       <View style={topContent}>
@@ -24,8 +24,20 @@ export default (props) => {
       </View>
       <View style={midContent}>
         <InputTextFull
+          placeholder="First name"
+          secureTextEntry={false}
+        />
+        <InputTextFull
+          placeholder="Last name"
+          secureTextEntry={false}
+        />
+        <InputTextFull
           placeholder="Email"
           secureTextEntry={false}
+        />
+        <InputTextFull
+          placeholder="Password"
+          secureTextEntry={true}
         />
         <InputTextFull
           placeholder="Password"
@@ -34,30 +46,18 @@ export default (props) => {
       </View>
       <View style={botContent}>
         <Button
-          text='Login'
+          text='Submit'
           backgroundColor= '#60B29B'
           fn={() => {}}
         />
-        <Button
-          text='Register'
-          backgroundColor= '#60B29B'
-          fn={() => {}}
-        />
-        <View
-          style={{
-            height: 10
-          }}
-        />
-        <Button
-          text='Login via Gmail'
-          backgroundColor= '#ea4335'
-          fn={() => {}}
-        />
-        <Button
-          text='Login via Facebook'
-          backgroundColor= '#3b5998'
-          fn={() => {}}
-        />
+        <Text style={{
+          fontSize: 10,
+          marginTop: 5
+        }}
+        onPress={() => {navigation.navigate('LoginScreen')}}
+        >
+          Already have an account
+        </Text>
       </View>
     </View>
   )

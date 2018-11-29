@@ -5,7 +5,7 @@ import CardRegister from './src/components/CardRegister'
 
 import style from'./src/style'
 
-class Register extends Component {
+class Login extends Component {
 
   constructor(props) {
     super(props)
@@ -17,12 +17,18 @@ class Register extends Component {
       container
     } = style
 
+    const {
+      navigation
+    } = this.props
+
     return (
       <View style={container}>
-        <CardRegister/>
+        <CardRegister
+          navigation={navigation}
+        />
       </View>
     )  
   }
 }
 
-export default Register
+export default Login
