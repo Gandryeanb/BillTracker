@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
+import { connect } from 'react-redux'
 
 import CardRegister from './src/components/CardRegister'
 
 import style from'./src/style'
 
-class Login extends Component {
+class Register extends Component {
 
   constructor(props) {
     super(props)
   }
 
   render() {
-
+    
     const {
       container
     } = style
@@ -31,4 +32,4 @@ class Login extends Component {
   }
 }
 
-export default Login
+export default Register

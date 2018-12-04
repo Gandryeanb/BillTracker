@@ -8,14 +8,15 @@ const {
   inputTextStyle
 } = style
 
-export default ({ placeholder, secureTextEntry }) => {
+export default ({ placeholder, secureTextEntry, endPointState, fn, value }) => {
   return (
     <View style={container}>
       <TextInput
         style={inputTextStyle}
         placeholder={placeholder}
         secureTextEntry={secureTextEntry}
-        onChangeText={() => {}}
+        onChangeText={(val) => fn(endPointState, val)}
+        value={value}
       />
     </View>
   )

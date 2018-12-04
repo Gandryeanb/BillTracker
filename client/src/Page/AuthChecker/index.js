@@ -30,7 +30,7 @@ export default class AuthChecker extends Component {
     return (
       <View style={container}>
         <Text style={logo}>
-          Bill Tracker
+          Chit Chat App
         </Text>
       </View>
     )
